@@ -23,7 +23,17 @@ var data = {
     value: "2",
     subs: [{
       name: "Sub Row 1",
-      value: "s1"
+      value: "s1",
+      subs:[
+        {
+          name: "Row 2",
+          value: "2",
+        },
+        {
+          name: "Row 2",
+          value: "2",
+        }
+      ],
     }, {
       name: "Sub Row 2",
       value: "s2"
