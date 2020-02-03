@@ -17,7 +17,7 @@ export const queryData = (name: string) => {
   https.get(url, (res) => {
     //返回数据可能是分段的
     let chunks: any[] = []
-    res.on("data", (chunk) => {
+    res.on("data", (chunk:Buffer) => {
       chunks.push(chunk)
     })
     res.on("end", () => {
@@ -60,11 +60,18 @@ export const printData = (data: any): void => {
         type: "string",
         maxWidth: 10
       },
+      {
+        id: "pe",
+        name: "市盈率",
+        type: "string",
+        maxWidth: 10
+      },
     ],
     rows: [{
       name: data.name,
       value: data.price,
-      cap:((data.market_cap-0)/100000000).toFixed(2)
+      cap:((data.market_cap-0)/100000000).toFixed(2),
+      pe:data.pe
     }]
   }
   grid.render(renderData)

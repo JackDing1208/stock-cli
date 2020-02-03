@@ -1,11 +1,17 @@
 {
-  "name": "stock-cli",
+  "name": "jd-stock-cli",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "stock": "dist/cli.js"
+  },
+  "files": [
+    "dist/**/*.js"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
