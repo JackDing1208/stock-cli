@@ -7,17 +7,29 @@ const Grid = require("console-grid")
 const grid = new Grid()
 
 
+const transName = (name: string) => {
+  if (name.length === 6 && parseInt(name) < 999999) {
+    return name + ".sz"
+  } else if (name.length === 4 && parseInt(name) < 9999) {
+    return name + ".hk"
+  } else {
+    return name
+  }
+}
+
+
 export const queryData = (name: string) => {
+  const queryName = transName(name)
 
   const queryParam = querystring.stringify({
     api_token: token,
-    symbol: name
+    symbol: queryName
   })
   const url = URL + queryParam
   https.get(url, (res) => {
     //返回数据可能是分段的
     let chunks: any[] = []
-    res.on("data", (chunk:Buffer) => {
+    res.on("data", (chunk: Buffer) => {
       chunks.push(chunk)
     })
     res.on("end", () => {
@@ -70,8 +82,8 @@ export const printData = (data: any): void => {
     rows: [{
       name: data.name,
       value: data.price,
-      cap:((data.market_cap-0)/100000000).toFixed(2),
-      pe:data.pe
+      cap: ((data.market_cap - 0) / 100000000).toFixed(2),
+      pe: data.pe
     }]
   }
   grid.render(renderData)

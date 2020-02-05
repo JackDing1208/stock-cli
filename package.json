@@ -1,10 +1,11 @@
 {
   "name": "jd-stock-cli",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "dist/cli.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stock": "ts-node src/cli.ts"
   },
   "bin": {
     "stock": "dist/cli.js"
