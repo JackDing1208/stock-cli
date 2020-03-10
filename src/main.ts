@@ -56,25 +56,37 @@ export const printData = (data: any): void => {
     columns: [
       {
         id: "name",
-        name: "股票名称",
+        name: "company name",
         type: "string",
-        maxWidth: 38
+        maxWidth: 40
       },
       {
         id: "value",
-        name: "当前股价",
+        name: "current price",
         type: "string",
-        maxWidth: 10
+        maxWidth: 15
       },
       {
         id: "cap",
-        name: "当前市值",
+        name: "market cap",
+        type: "string",
+        maxWidth: 15
+      },
+      {
+        id: "pe",
+        name: "PE",
         type: "string",
         maxWidth: 10
       },
       {
-        id: "pe",
-        name: "市盈率",
+        id: "eps",
+        name: "EPS",
+        type: "string",
+        maxWidth: 10
+      },
+      {
+        id: "market",
+        name: "market",
         type: "string",
         maxWidth: 10
       },
@@ -83,7 +95,9 @@ export const printData = (data: any): void => {
       name: data.name,
       value: data.price,
       cap: ((data.market_cap - 0) / 100000000).toFixed(2),
-      pe: data.pe
+      pe: data.pe,
+      eps:data.eps,
+      market:data.stock_exchange_short
     }]
   }
   grid.render(renderData)
