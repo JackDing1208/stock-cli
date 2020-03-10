@@ -62,7 +62,7 @@ export const printData = (data: any): void => {
       },
       {
         id: "value",
-        name: "current price",
+        name: `price(${data.currency})`,
         type: "string",
         maxWidth: 15
       },

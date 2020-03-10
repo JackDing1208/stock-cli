@@ -7,7 +7,7 @@ const program = new commander.Command()
 
 program
 //设置基本信息
-  .version("1.2.3")
+  .version("1.2.4")
   .name("stock")
   .usage("<name>")
   //设置函数的参数和函数体

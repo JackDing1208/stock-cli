@@ -1,6 +1,6 @@
 {
   "name": "jd-stock-cli",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "",
   "main": "dist/cli.js",
   "scripts": {
